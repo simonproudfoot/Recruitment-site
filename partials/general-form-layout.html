@@ -1,0 +1,100 @@
+<div class="row">
+    {{ fields }} {{ if type == "textarea" }}
+    <div class="block col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <label>{{ display }}</label>
+        <textarea name="{{ field }}" class="form-control">{{ old:comment }}</textarea>
+    </div>
+    {{ elseif type == "select" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <select name="{{ field }}" class="l">
+            {{ options }}
+            {{if value == 'Please select'}}
+                <option>{{ value }}</option>
+            {{ else }}
+                <option value="{{ value }}">{{ value }}</option>
+            {{ /if }}
+            {{ /options }}
+        </select>
+    </div>
+    {{ elseif type == "multiple" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <select multiple name="{{ field }}" class="">
+            {{ options }}
+            <option value="{{ value }}">{{ value }}</option>
+            {{ /options }}
+        </select>
+    </div>
+    {{ elseif type == "checkboxes" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <div class="c-inputs-stacked">
+            {{ options }}
+            <label class="c-input c-checkbox">
+                <input type="checkbox" name="{{ field }}" value="{{ key }}">
+                <span class="c-indicator"></span>
+                <span class="c-description">{{ value }}</span>
+            </label>
+            {{ /options }}
+        </div>
+    </div>
+    {{ elseif type == "radio" }}
+    <div class="block col-xs-12 col-sm-12">
+        <label>{{ display }}</label>
+        <div class="c-inputs-stacked">
+            <div class="switch-field">
+                {{ options }}
+                <input type="radio" id="{{ display }}{{ value }}" name="{{ field }}" value="{{ value }}" />
+                <label for="{{ display }}{{ value }}">{{ value }}</label>
+                {{ /options }}
+            </div>
+        </div>
+    </div>
+    {{ elseif type == "checkbox" }}
+    <div class="block col-xs-12 col-sm-12">
+        <label>{{ display }}
+            <br/>
+            <br/>
+            <div class="form-check">
+                {{ options }}
+                <input type="checkbox" name="{{ field }}" class="form-check-input" value="{{ value }}">
+                <span style="margin-right:100px">{{ value }} </span> {{ /options }}
+            </div>
+        </label>
+    </div>
+    {{ elseif type == "date" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        {{ if display == "Date of birth" }}
+            <input type="date" name="{{ field }}" value="{{ now format=" Y-m-d " }}" class="form-control"  v-model="dob" />
+        {{ else }}
+            <input type="date" name="{{ field }}" value="{{ now format=" Y-m-d " }}" class="form-control"/>
+        {{ /if }}
+
+    </div>
+    {{ elseif type == "email" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <input type="email" name="{{ field }}" value="{{ old }}" class="form-control" />
+    </div>
+    {{ elseif type == "number" }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <input type="number" name="{{ field }}" value="{{ old }}" class="form-control" />
+    </div>
+    {{ else }}
+    <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label>{{ display }}</label>
+        <input type="text" name="{{ field }}" value="{{ old }}" class="form-control" />
+    </div>
+    {{ /if }} {{ if description }}
+    <div class="block col-xs-12 ">
+        <label>{{ display }}</label>
+        <small class="form-text text-muted">{{ description }}</small>
+    </div>
+    {{ /if }} {{ /fields }}
+    <div class="col-xs-12 block">
+        <button class="mb-0 btn btn-l btn-block btn-primary">{{ submit_text or "Submit" }}</button>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.breadcrumb {
+    width: 100%;
+    margin-bottom: 0.5em;
+    a {
+        margin-right: 0.5em;
+        color: $red;
+        text-transform: capitalize;
+        &:hover {
+            color: $coral;
+        }
+        &:after {
+            margin-left: 0.5em;
+            content: "/ ";
+        }
+    }
+}

@@ -1,0 +1,16 @@
+<section class="container-fluid">
+
+	<header>
+		<h1>{{ title }}</h1>
+		{{ content_raw wrap="h2" }}
+	</header>
+
+    <div class="tiles">
+       <article class="list">
+		{{ collection:jobs :limit="posts" }}
+			{{ partial:block }}
+		{{ /collection:jobs }}
+	</article>
+    </div>
+
+</section>

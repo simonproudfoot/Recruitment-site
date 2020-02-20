@@ -1,0 +1,30 @@
+.icon{
+    height: 0.7em;
+    width: 0.7em;
+    display: inline-block;
+    margin-right: 0.3em;
+    vertical-align: baseline;
+    @include full-back;
+}
+.icon.time{
+    background-image: url('../../img/icons/clock.svg');
+}
+.icon.location{
+    background-image: url('../../img/icons/map-marker.svg');
+}
+.icon.location-white{
+    background-image: url('../../img/icons/map-marker-white.svg');
+}
+.icon.calendar{
+    background-image: url('../../img/icons/calendar-full.svg');
+}
+.icon.calendar-white{
+    background-image: url('../../img/icons/calendar-full-white.svg');
+}
+.icon.time{
+    background-image: url('../../img/icons/clock.svg');
+}
+.icon.time-white{
+    background-image: url('../../img/icons/clock-white.svg');
+}
+

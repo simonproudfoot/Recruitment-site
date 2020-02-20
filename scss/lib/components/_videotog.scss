@@ -1,0 +1,57 @@
+.videotog {
+    opacity: 0;
+    color: $white;
+    max-width: $containerMaxWidth;
+    position: absolute;
+    margin: auto;
+    height: 4em;
+    z-index: 20;
+    margin-top: 0.5em;
+    cursor: pointer;
+    small {
+        color: inherit;
+    }
+    &:hover {
+        transition: opacity 0.2s ease-in-out, color $coral ease-in-out, width 0.2s ease-in-out;
+    }
+    &__hide {
+        display: inline-block;
+        &__text {
+            position: absolute;
+            left: 1px;
+            width: 10em;
+            color: $white;
+        }
+    }
+    &__selecta {
+        display: inline-block;
+        vertical-align: -webkit-baseline-middle;
+        color: #fff;
+        max-width: 180px;
+        line-height: 16px;
+        width: 15em;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        height: 1.6em;
+        padding: 0;
+        &:hover {
+            color: $red;
+            text-decoration: underline;
+        }
+    }
+    &__icon {
+        @include full-back;
+        width: 2em;
+        margin-right: 1em;
+        height: 2em;
+        display: inline-block;
+        vertical-align: -webkit-baseline-middle;
+        background-image: url("../../img/icons/play.svg");
+        &__text {
+            position: absolute;
+            left: -200px;
+            width: 10em;
+        }
+    }
+}

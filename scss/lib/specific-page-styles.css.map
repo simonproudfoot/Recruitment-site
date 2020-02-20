@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,2BAA2B;EACpB,SAAS,EAAE,UAAU;EACrB,SAAS,EAAE,KAAK;;AAGvB,8BAA8B;EAC5B,SAAS,EAAE,GAAG;;AAIZ,yCAAe;EACX,MAAM,EAAE,eAAe",
+"sources": ["specific-page-styles.scss"],
+"names": [],
+"file": "specific-page-styles.css"
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+    <html
+    class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1" name="viewport">
+        <meta content="Another awesome Statamic site" name="description">
+        <title>{{ title ensure_right=" / " }}{{ site_name }}</title>
+        <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
+        <link rel="stylesheet" href="{{ theme:css }}">
+        <script>
+    // pass the data from Laravel to VUE
+    window.csrf_token = "{{ csrf_token }}";
+    window.userName = "{{user}}{{ first_name }}{{ last_name }}{{/user}}";
+    window.email = "{{user}}{{ email }}{{/user}}";
+    window.formTitle = "{{foreach:formselected}}{{ value }}{{/foreach:formselected}}";
+</script>
+    </head>
+    <body>
+    <div id="app">
+        {{ partial:nav }}
+        {{ template_content }}
+        <div class="sponsors border-top">
+            <div class="container">
+                <div class="row align-self-center justify-content-center">
+                    <div class="col-10 col-sm-8 col-md-4 mt-3 mb-3">
+                        <p class="mb-0">Official partners</p>
+                        <img class="lozad full-width" data-loaded="true" src="https://mif.co.uk/wp-content/themes/MIF19-theme/assets/img/logos/logos1.png">
+                    </div>
+                    <div class="col-10 col-sm-8 col-md-4 mt-3 mb-3">
+                        <p class="mb-0">Public sector partners</p>
+                        <img class="lozad full-width" data-loaded="true" src="https://mif.co.uk/wp-content/themes/MIF19-theme/assets/img/logos/logos2.png">
+                    </div>
+                    <div class="col-10 col-sm-8 col-md-4 mt-3 mb-3">
+                        <p class="mb-0">Media partners</p>
+                        <img class="lozad full-width" data-loaded="true" src="https://mif.co.uk/wp-content/themes/MIF19-theme/assets/img/logos/logos3.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="{{ theme:js }}"></script>
+        <script src="https://kit.fontawesome.com/c3f32f1cba.js" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+
+<h2 class="m-0 pt-0 m pb-3">Equal opportunities and diversity</h2>
+<p class="mb-0">At Manchester International Festival we are committed to building opportunity for all into everything we do and to reflect the rich diversity in our city and the world at large</p>
+  <p>Gathering the information on this form is therefore vital to measuring our success in this area - and is also a requirement of our funders. We would therefore appreciate you taking the time to complete this section of the form before proceeding to your application</p>
+  <p>Please note - the information entered on this page will NOT be used to assess your application and is for anonymous statistical monitoring purposes only</p>
+{{ form:create in="diversity" attr="id:diversity" }} 
+  {{if errors}}
+  @{{ showDiversity = false}} 
+  <div class="alert alert-danger">
+		<h3>Unable to submit this application</h3>
+		<p>Please fix the following errors and try again</p>
+    <ul class="p-2">
+    {{ errors }}
+      <li>{{ value }}</li>
+    {{ /errors }}
+    </ul>
+	</div>
+  {{ /if }}
+  {{ if success }} 
+    @{{ saveDiversity() }} 
+  {{ /if }}
+  {{ partial:general-form-layout }}
+{{ /form:create }}
+
+

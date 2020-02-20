@@ -1,0 +1,27 @@
+.sharebutton {
+    height: 2.5em;
+    width: 2.5em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-position: center center;
+    margin-right: 1em;
+    border: 1px #ebebeb solid;
+    vertical-align: middle;
+    &:hover {
+        background-color: #ebebeb;
+    }
+    h4 {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+.fb-icon {
+    background-image: url(../../img/facebook-share.svg);
+}
+.twit-icon {
+    background-image: url(../../img/twitter-share.svg);
+}
+.google-icon {
+    background-image: url(../../img/google-share.svg);
+}

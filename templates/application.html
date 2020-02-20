@@ -1,0 +1,56 @@
+    {{ if logged_in }}
+    <div style="max-width: 100%" >
+        <div class="row justify-content-center no-gutters" >   
+            <div class="choosePage col-xs  text-center" v-bind:class="{ 'pageActive' : step == 'desc' || step == ''}" v-on:click="section('desc')">
+                <small>Job<br>description</small>
+            </div>
+            <div v-if="showDiversity == true" v-bind:class="{ 'pageActive' : step == 'div'}" class="choosePage col-xs text-center"  v-on:click="section('div')">
+                <small>Diversity</small>
+            </div>
+            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 1}, {'btn--inactive' : showDiversity}]"  v-on:click="section(1)">
+                <small>Contact<br/>details</small>
+            </div>
+            <div class="choosePage col-xs  text-center" v-bind:class="[{ 'pageActive' : step === 2}, {'btn--inactive' : showDiversity}]" v-on:click="section(2)">
+                <small>Employment<br/>history</small>
+            </div>
+            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 3}, {'btn--inactive' : showDiversity}]" v-on:click="section(3)">
+                <small>Experience</small>
+            </div>
+            <div class="choosePage col-xs  text-center" v-bind:class="[{ 'pageActive' : step === 4}, {'btn--inactive' : showDiversity}]" v-on:click="section(4)">
+                <small>Supporting<br/>information</small>
+            </div>
+            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 5}, {'btn--inactive' : showDiversity}]" v-on:click="section(5)">
+                <small>References</small>
+            </div>
+            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 6}, {'btn--inactive' : showDiversity}]" v-on:click="section(6)">
+                <small>Eligibility</small>
+            </div>
+            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 7}, {'btn--inactive' : showDiversity}]" v-on:click="section(7)">
+                <small>Submit</small>
+            </div>
+        </div>
+        <div class="saveBox" v-if="showDiversity != true" v-bind:class="step == desc ? 'd-none' : 'd-block'">
+            <button @click="saveForm">Save progress</button>
+            <button v-if="hasSaved == true" @click="getForm">Load Saved version</button>
+            <div class="loadOrSave" v-if="showSaved">Form Saved</div>
+            <div class="loadOrSave" v-if="loading">Loading...</div>
+        </div>
+    </div>
+    {{ /if }}
+    <section class="regular">
+    @{{step}}
+        <div class="container">
+            <div class="row">
+                {{ if logged_in }}
+                    {{ partial:job-forms }}
+                {{ else }}
+                <div class="col-xs-12 col-md-8">
+                    {{ partial:desc }}
+                </div>
+                <div class="col-xs-12 col-md-3 offset-md-1">
+                    {{ partial:user-login-small }}
+                </div>
+                {{ /if }}          
+            </div>       
+        </div>
+    </section>

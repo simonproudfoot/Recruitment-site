@@ -1,0 +1,17 @@
+.mobile-hide{
+    @include mq($until: tablet){
+        display: none;
+    }
+}
+
+.tablet-hide{
+    @include mq($from: tablet, $until: desktop){
+        display: none;
+    }
+}
+
+.desktop-hide{
+    @include mq($from: desktop){
+        display: none;
+    }
+}

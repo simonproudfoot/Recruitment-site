@@ -1,0 +1,32 @@
+.standard-box {
+    margin-bottom: 1em;
+    &:hover &__thumbnail__inner {
+        transform: scale(1.1);
+    }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    &__thumbnail {
+        overflow: hidden;
+        &__inner {
+            @include full-back;
+            transition-duration: 0.5s;
+            &--empty {
+                background-color: $gray2;
+                background-size: 15em;
+                &:hover {
+                    background-color: $faded-blue;
+                }
+            }
+        }
+    }
+    &__content {
+        background-color: $white;
+        padding-top: 0;
+        padding-bottom: 0;
+        &__inner {
+            padding: 0.5em;
+        }
+    }
+}

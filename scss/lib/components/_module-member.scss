@@ -1,0 +1,23 @@
+.module-member {
+    background-color: $red;
+    width: 100%;
+    padding: em(50) 0;
+    &--xmas {
+        position: relative;
+        padding: em(100) 0;
+       //background-image: url('../../img/icons/christmas-pattern.svg');
+        background-repeat: repeat;
+        @include full-back;
+    }
+    h2,
+    p {
+        color: $white;
+    }
+    .btn {
+        color: $red;
+        background-color: $white;
+        &:hover {
+            background-color: $coral;
+        }
+    }
+}

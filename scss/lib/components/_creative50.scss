@@ -1,0 +1,44 @@
+.creative50 {
+    .rowfix {
+        height: 100%;
+    }
+    &__info {
+        background-color: $coral;
+        &__inner {
+            @include bigger-pad;
+            p {
+                color: $white;
+            }
+        }
+    }
+    &__profile {
+        background-color: $white;
+        @include grey-border;
+        &:hover {
+            background-color: $gray;
+        }
+        &__name {
+            padding: 1em;
+            * {
+                text-align: center;
+                margin: 0;
+            }
+        }
+        &__picwrap {
+            width: 100%;
+            display: block;
+            height: 30%;
+            padding: 4em 0;
+            text-align: center;
+            &__image {
+                border-radius: em(100);
+                width: 8em;
+                height: 8em;
+                margin: 0 auto;
+                border: 1px $white solid;
+                @include grey-border;
+                @include full-back;
+            }
+        }
+    }
+}

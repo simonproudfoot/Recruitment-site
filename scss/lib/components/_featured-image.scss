@@ -1,0 +1,7 @@
+.featured-image {
+    @include full-back;
+    height: em(400);
+    @include mq($until: tablet) {
+        height: 13em;
+    }
+}

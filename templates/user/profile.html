@@ -1,0 +1,11 @@
+<section class="regular text-center">
+    {{ user:profile username="{username}" }}
+    {{ username }}
+        <header style="padding: 7em 0">
+            <img src="{{ email | gravatar:100 }}" alt="{{ name | entities }}" class="img-circle" />
+            <h1>Hello, {{ first_name }}</h1>   
+            <p>Thank you for registering with us</p>
+            <a href="/">Go back to job listings</a>     
+        </header>
+    {{ /user:profile }}
+</section>

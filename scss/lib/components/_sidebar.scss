@@ -1,0 +1,74 @@
+.sidebar {
+    background-color: $coral;
+    padding: 0;
+    overflow: hidden;
+    .nf-breadcrumbs {
+        display: block;
+        margin: 0 !important;
+        @include mq($until: desktop) {
+            //  display: none;
+        }
+        li.active a {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        li {
+            width: 100%;
+            display: block;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            a {
+                font-size: 16px;
+                padding: 1em;
+                text-decoration: none;
+                color: $white;
+                width: 100%;
+                margin: 0;
+            }
+        }
+    }
+    .nf-before-form {
+        padding: 0;
+        border: 0;
+        display: block;
+        legend,
+        thead {
+            padding: 0 0.6em;
+        }
+        table {
+            width: 100%;
+        }
+        th {
+            width: 100%;
+            display: block;
+            padding: 0 0.6em;
+            color: red;
+        }
+        .active {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .nf-saves-item {
+            display: block;
+            width: 100%;
+            display: block;
+            a {
+                float: none !important;
+                margin-left: 00em;
+                font-size: 1.3em;
+                &:hover {
+                    color: $red;
+                }
+            }
+            td {
+                display: block !important;
+            }
+            &:hover {
+                background-color: transparent;
+            }
+        }
+        * {
+            color: $white;
+        }
+    }
+}

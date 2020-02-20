@@ -1,0 +1,26 @@
+.user-capture-form {
+    background-color: $darker-blue;
+
+    &--mobile{
+        @include mq($from: tablet){
+            display: none;
+        }
+    }
+
+    &--tablet{
+        @include mq($from: tablet){
+            display: none;
+        }
+    }
+
+    &__inner {
+        padding: 1em;
+        h2, h3, h4, p, label{
+            color: #fff;
+            margin: 0;
+        }
+        .btn, input[type="submit"] {
+            background-color: $darker-blue;
+        }
+    }
+}

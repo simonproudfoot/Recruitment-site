@@ -1,0 +1,54 @@
+.headbar-social {
+    background-color: $white;
+    width: 100%;
+    padding: em(12) 0;
+    //border-top: 1px #d1d1d1 solid;
+    input,
+    .btn,
+    form {
+        margin: 0;
+    }
+    .btn {
+        padding: 0.5em 0;
+        @include mq($until: tablet) {
+            margin: 0.5em 0;
+        }
+    }
+    &__icon {
+        display: inline-block;
+        height: em(25);
+        width: em(25);
+        margin: 0.4em 0.5em 0em 0;
+        &:hover {
+            * {
+                fill: $coral;
+            }
+        }
+        @include full-back;
+        svg {}
+        &--facebook svg {
+            height: em(25);
+            width: em(25);
+            -webkit-transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 600ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            * {
+                fill: $gray2;
+            }
+        }
+        &--twitter {
+            height: em(25);
+            width: em(25);
+            * {
+                fill: $gray2;
+            }
+        }
+        &--instagram {
+            height: em(25);
+            width: em(25);
+            margin-left: 0.4em;
+            * {
+                fill: $gray2;
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+.creative-blog-box {
+    background-color: $coral;
+    &__inner {
+        // @include big-pad;
+        padding: 3em 1em;
+    }
+    &__featured {
+        &__title {
+            background-color: #0026D7;
+            display: block;
+            width: 100%;
+            padding: 1em;
+        }
+        ul {
+            background-color: $white;
+            margin: 0;
+            @include mq($until: desktop) {
+                display: none;
+            }
+            li {
+                a {
+                    border-top: 1px $gray solid;
+                    color: inherit;
+                    width: 100%;
+                    display: block;
+                    padding: 1em;
+                    &:hover {
+                        background-color: $gray;
+                    }
+                }
+            }
+        }
+    }
+}

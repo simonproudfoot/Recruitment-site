@@ -1,0 +1,75 @@
+<section style="background-color: #fff">
+
+  <div class="container no-space-top">
+    <div class="row middle-xs">
+      <div class="col-xs-10 col-sm-8 col-md-6 col-sm-offset-1 pagecontent">
+        <h1
+          class="no-space-top stretch-text"
+          style="font-size:100px; color: #6bcdb5"
+        >
+          WORK WITH US 
+        </h1>
+        
+        <h3 class="no-space-bottom">
+          {{ main_intro_text }}
+        </h3>
+      </div>
+      <div class="col-xs-10 col-sm-3 col-xs-offset-1 mobile-hide mobile-hide">
+        <img
+          alt=""
+          src="https://recruitment.mif.co.uk/wp-content/themes/mif-recruitment/assets/img/rec.svg"
+          style="width: 100%"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+<article class="list">
+  <section class="">
+    <div class="container">
+      <div class="row ">
+        <div class="col-xs-12 col-md-6 mobile-space-top pagecontent">
+          <h1 class="no-space-top " style="font-size: 70px">
+            Current job vacancies
+          </h1>
+        </div>
+      </div>
+      <div class="row">
+        {{ collection:jobs :limit="posts" }} 
+          {{ partial:block }} 
+        {{ /collection:jobs }}
+      </div>
+    </div>
+  </section>
+</article>
+<div class="">
+  <section style="background-color: #fff">
+    <div class="row center-xs middle-xs text-left">
+      <div class="row center-xs middle-xs text-left">
+        <div class="col-xs-3 col-md-2 mobile-hide">
+          <img
+            src="https://mif.co.uk/wp-content/uploads/2019/03/John-McGrath-Artistic-Director-and-CEO-of-MIF-and-The-Factory-credit-Tarnish-Vision-DSC06435-2-900x550.jpg"
+          />
+        </div>
+        <div class="col-xs-9 col-md-5">
+          <blockquote>
+            {{ quote }}
+            <cite>{{ who said it }}</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<section style="background-color: #fff">
+  <div class="container">
+    <div class="row around-xs text-left">
+      <div class="small-gallery col-xs-12 col-md-5 space-bottom pagecontent ">
+        {{ content_column_left }}
+      </div>
+      <div class="small-gallery col-xs-12 col-md-5 space-bottom pagecontent">
+        {{ content_column_right }}
+      </div>
+    </div>
+  </div>
+</section>

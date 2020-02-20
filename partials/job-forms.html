@@ -1,0 +1,425 @@
+<div id="forms">
+    <div class="container">  
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <!-- JOB DESCRIPTON -->
+                <div v-bind:class="step == 'desc' || step == '' ? 'd-block' : 'd-none'">
+                    <div class="row">
+                        {{ partial:desc }}
+                    </div>
+                </div>
+                 <div v-bind:class="step == 'div' ? 'd-block' : 'd-none'">
+                    <div class="row">
+                        {{ partial:form-diversity }}
+                    </div>
+                </div>
+                <!-- JOB DESCRIPTON END -->
+                <!-- BEGIN FORM -->
+                {{ foreach:formselected }} {{ form:create in=value  attr="id:mainform" redirect="/success" }} 
+                <!-- ERROR BOX -->
+                {{if errors}}
+                <div class="alert alert-danger">
+					<h3>Unable to submit this application</h3>
+					<p>Please fix the following errors and try again</p>
+                    <ul class="p-2"> {{ errors }} <li>  {{ value }}   </li>{{ /errors }}</ul>
+				</div>
+                {{ /if }}
+                <!-- ERROR BOX END-->
+                <!-- FORM SECTIONS-->
+               
+                <div class="" v-bind:class="step == 1 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="">
+                                    <h2 class="m-0 pt-0 m pb-3">Contact details</h2>
+                                    <p class="mb-0">The details in this form will be used to contact you should we wish to arrange an interview - We normally offer interview slots by telephone, with follow up confirmation by email.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HIDE THIS IN PRODUCTION VERSION-->
+                        <div class="row mt-5">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="name">First name</label>
+                                <input type="text" id="name" name="name" value="{{user}}{{first_name}}{{/user}}"/>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label  for="surname">Last name</label>
+                                <input type="text" name="surname" id="surname" value="{{user}}{{last_name}}{{/user}}"/>
+                            </div>
+                            <!-- <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label  for="dob">Date of birth</label>
+                                <input type="text" name="dob" id="dob" v-model="dob"/>
+                            </div> -->
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label  for="email">Email address</label>
+                                <input type="text" name="email" id="email" value="{{user}}{{email}}{{/user}}"/>
+                            </div>
+                        </div>
+                        <!-- HIDE THIS IN PRODUCTION VERSION -- END-->
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label for="tel">Contact number</label>
+                                <input name="tel" type="tel"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row align-items-end">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label>House/Building number</label>
+                                <input name="house_number" style="max-width: 150px;" type="text"/>
+                                <label>Street name</label>
+                                <input name="street_name" type="text"/>
+                                <label>Town/City</label>
+                                <input name="town_city" type="text"/>
+                                <label>Postcode</label>
+                                <input name="postcode" style="max-width: 200px;" type="text"/></div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label>Where did you hear about this vacancy</label>
+                                <select name="where_did_you_hear_about_this_vacancy">
+                                    <option selected="selected" value="">PLEASE SELECT</option>
+                                    <option value="MIF Website">MIF Website</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="ArtsHub">ArtsHub</option>
+                                    <option value="Arts Council England Jobs">Arts Council England Jobs</option>
+                                    <option value="Hiive">Hiive</option>
+                                    <option value="DisabilityArts">DisabilityArts</option>
+                                    <option value="PANDA Listings">PANDA Listings</option>
+                                    <option value="StageJobsPro">StageJobsPro</option>
+                                    <option value="Other">Other</option>
+                                    <option value="MIF Newsletter">MIF Newsletter</option>
+                                    <option value="University Listings">University Listings</option>
+                                    <option value="Other Arts Organisation">Other Arts Organisation</option>
+                                    <option value="Twitter">Twitter</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label>If other, please specify</label>
+                                <input name="where_did_you_hear_about_this_vacancy_other" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" v-bind:class="step == 2 ? 'd-block' : 'd-none'">
+                    <div class="p-2 ">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">Employment history</h2>
+                                <p>Please tell us about your work (or study, career breaks etc). Please give brief details of your employer, your post and main duties, dates employed, final salary and reason for leaving</p>
+                                <p class="mb-3">
+                                    <strong style="color: red">Please note: there is a maximum of five roles</strong>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-xs-12">
+                                <h3>Position one: Latest</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Latest position start date *</label>
+                                <input name="job_position_one_start_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Latest position end date (if applicable)</label>
+                                <input name="job_position_one_end_date" type="date"/>
+                            </div>
+                            <div class="col-12 mb-5">
+                                <input id="current_position_is_ongoing" name="current_position_is_ongoing" type="checkbox" value="yes">
+                                <label for="current_position_is_ongoing">Current position is ongoing</label>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="job_position_one_job_title" type="text"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Company</label>
+                                <input name="job_position_one_company" type="text"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="job_position_one_details" rows="10"></textarea>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <label>If you are currently employed, what notice are you required to give?</label>
+                                <input name="job_position_one_notice_required" type="text"/>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row pt-4">
+                            <div class="col-xs-12">
+                                <h3>Position two</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position start date</label>
+                                <input name="job_position_two_start_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position end date (if applicable)</label>
+                                <input name="job_position_two_end_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="job_position_two_job_title" type="text"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Company</label>
+                                <input name="job_position_two_company" type="text"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="job_position_two_details" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row pt-4">
+                            <div class="col-xs-12">
+                                <h3>Position three</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position start date</label>
+                                <input name="job_position_three_start_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position end date (if applicable)</label>
+                                <input name="job_position_three_end_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="job_position_three_job_title" type="text"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Company</label>
+                                <input name="job_position_three_company" type="text"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="job_position_three_details" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row pt-4">
+                            <div class="col-xs-12">
+                                <h3>Position four</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position start date</label>
+                                <input name="job_position_four_start_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position end date (if applicable)</label>
+                                <input name="job_position_four_end_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="job_position_four_job_title" type="text"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Company</label>
+                                <input name="job_position_four_company" type="text"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="job_position_four_details" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="row pt-4">
+                            <div class="col-xs-12">
+                                <h3>Position five</h3>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position start date</label>
+                                <input name="job_position_five_start_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>position end date (if applicable)</label>
+                                <input name="job_position_five_end_date" type="date"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="job_position_five_job_title" type="text"/>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label>Company</label>
+                                <input name="job_position_five_company" type="text"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="job_position_five_details" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div v-bind:class="step == 3 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row pb-5">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">Experience</h2>
+                                <p class="mb-0">This section is an opportunity for you to tell us how your experience meets the person specification for the role - please consider this when responding to the questions
+                                </p>
+                            </div>
+                        </div>
+                        {{ form_saves:customFormFields jobform=value }}
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>{{ name }}</label>
+                                <textarea cols="30" name="{{ name }}" rows="10"></textarea>
+                            </div>
+                        </div>
+                        {{ /form_saves:customFormFields }}
+                    </div>
+                </div>
+                <div class="" v-bind:class="step == 4 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">Supporting information</h2>
+                                <p class="mb-0">Finally, please outline any further skills, qualities and experience that you feel you would bring to the post should you be appointed
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <label>Details</label>
+                                <textarea cols="30" name="supporting_information" rows="10"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" v-bind:class="step == 5 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">References</h2>
+                                <p class="mb-0">Please give two referees, including your present/most recent employer.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 mt-4">
+                                <h3>Referee one</h3>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Full name</label>
+                                <input name="reference_one_name" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Organisation</label>
+                                <input name="reference_one_organisation" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="reference_one_jobtitle" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Relationship to you</label>
+                                <input name="reference_one_relationship" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Contact number</label>
+                                <input name="reference_one_contact_number" type="tel"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Email</label>
+                                <input name="reference_one_email" type="email"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Address</label>
+                                <input name="reference_one_address" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Postcode</label>
+                                <input name="reference_one_postcode" type="text"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 mt-4">
+                                <h3>Referee two</h3>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Full name</label>
+                                <input name="reference_two_name" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Organisation</label>
+                                <input name="reference_two_organisation" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Job title</label>
+                                <input name="reference_two_jobtitle" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Relationship to you</label>
+                                <input name="reference_two_relationship" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Contact number</label>
+                                <input name="reference_two_contact_number" type="tel"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Email</label>
+                                <input name="reference_two_email" type="email"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Address</label>
+                                <input name="reference_two_address" type="text"/>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <label>Postcode</label>
+                                <input name="reference_two_postcode" type="text"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="" v-bind:class="step == 6 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">Eligibility</h2>
+                                <p>Sections 15 - 26 of the Immigration, Asylum and Nationality Act 2006 requires all employers in the United Kingdom to make basic document checks on every person they intend to employ. By making these checks, employers can be sure they will not break the law by employing illegal workers.</p>
+                                <p class="mb-0">In order to comply with the Immigration, Asylum & Nationality Act 2006 we are required to see proof of your right to work in the UK. This will be requested once an offer of employment has been made.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 mt-4">
+                                <input id="eligible_to_work" name="eligible_to_work" type="checkbox" value="eligible_to_work">
+                                <label for="eligible_to_work">Please confirm that you are currently eligible to work in the UK *</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" v-bind:class="step == 7 ? 'd-block' : 'd-none'">
+                    <div class="p-2">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <h2 class="m-0 pt-0 m pb-3">Submit</h2>
+                            </div>
+                            <div class="col-xs-12 mt-4 p-3 border">
+                                <input id="available_to_work" name="available_to_work" type="checkbox" value="yes">
+                                <label for="available_to_work">Please confirm that you are available for Interviews to take place on
+                                    {{ date_of_interviews }}. *</label>
+                            </div>
+                            <div class="col-xs-12 p-0">
+                                <button class="m-0 btn btn-l btn-block btn-primary">{{ submit_text or "Submit" }} <i class="far text-white fa-paper-plane"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- FORM SECTIONS END-->
+                {{ /form:create }} {{ /foreach:formselected }}
+                <!-- END FORM -->
+            </div>
+        </div>
+    </div>
+    <div class="container">
+    <div class="row justify-content-center ">
+        <div class="col-12 col-md-8 ">
+            {{ partial:form-pagination }}
+        </div>
+    </div>
+    </div>
+</div>

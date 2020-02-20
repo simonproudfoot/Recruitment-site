@@ -1,0 +1,23 @@
+.footer {
+    background-color: $white;
+    padding: 2.5em 0 0 0;
+    color: $dark;
+    h4 {
+        color: $dark;
+    }
+    li {
+        list-style: none;
+        line-height: 1.66667em;
+        @include mq($until: tablet) {
+            margin: 1em 0;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: em(18);
+            &:hover {
+                color: $coral;
+            }
+        }
+    }
+}

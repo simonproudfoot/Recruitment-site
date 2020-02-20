@@ -1,0 +1,74 @@
+.form-frame {
+    background-color: $white;
+    padding: 0;
+    h2 {
+        margin: 0;
+    }
+    @include mq($until: tablet) {
+        //   padding: em(50) 0;
+    }
+    #nf-field-267-wrap {
+        display: block;
+    }
+    .nf-field-container {
+        padding: 1em 1.5em;
+    }
+    .nf-next-previous,
+    .nf-breadcrumbs {
+        margin: 0 !important;
+    }
+    .save-container,
+        {
+        padding: 0.23em 1.5em;
+        border-bottom: 1px #cecece solid;
+        padding-bottom: 1em;
+        background-color: #fff;
+        input {
+            background-color: transparent;
+            border: 1px grey solid;
+            margin-top: 4px;
+            padding: 0.45em 1em 0.3em 1em;
+            cursor: pointer;
+            &:hover {
+                background-color: $dark;
+                color: $white;
+            }
+        }
+    }
+    .nf-mp-footer {
+        background-color: #e2e2e2;
+        .btn,
+        .nf-next,
+        .nf-previous {
+            background-color: transparent;
+            color: #000;
+            cursor: pointer;
+            &:hover {
+                background-color: $dark;
+                color: $white;
+            }
+        }
+    }
+    .nf-field-container.html-container.label-above {
+        //     background-color: #e2e2e2;
+        margin: 0 !important;
+            vertical-align: top;
+    }
+    .nf-error-field-errors {
+        background-color: $red;
+        padding: 1em;
+        color: #fff !important;
+        font-size: 1.4em;
+        .nf-error-msg,
+        * {
+            color: #fff !important;
+        }
+    }
+    .btn,
+    button,
+    input[type="submit"],
+    .nf-next,
+    .nf-previous {
+        margin: 0 !important;
+    }
+}

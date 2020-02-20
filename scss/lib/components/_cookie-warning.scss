@@ -1,0 +1,19 @@
+.cookie-warning {
+    display: block;
+    background-color: $coral;
+    color: #fff;
+    padding: 1em 0;
+    &__go-away {
+        @include full-back;
+        
+        width: 2em;
+        height: 2em;
+        pointer: cursor;
+        @include mq($from: tablet) {
+            //margin-left: auto;
+        }
+    }
+    p {
+        line-height: 0.4em;
+    }
+}

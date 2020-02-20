@@ -1,0 +1,50 @@
+.module-feature {
+    @include full-back;
+    position: relative;
+    &__info {
+        &__inner {
+            @include bigger-pad;
+        }
+    }
+    &__overlay {
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 1);
+        background: -moz-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0, 0, 0, 1)), color-stop(100%, rgba(0, 0, 0, 0)));
+        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -o-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -ms-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+        //filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1);
+        z-index: 0;
+    }
+    &__content {
+        @include bigger-pad;
+        position: relative;
+        z-index: 1;
+        &--small {
+            @include big-pad;
+        }
+        .btn {
+            &:hover {
+                //background-color: $coral;
+            }
+        }
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        em,
+        strong {
+            color: $white;
+        }
+        p {
+            max-width: em(282.27);
+        }
+    }
+}

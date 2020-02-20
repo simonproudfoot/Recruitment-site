@@ -1,0 +1,29 @@
+<div class="p-2">
+  <div class="row no-gutters">
+  <div class="col-12">
+      <h1 class="mt-0">{{ title }}</h1>
+  </div>
+  {{ job_pack }}
+  <a href="{{ value }}">
+    <div class="jobpack py-2 pl-2 pr-4 mb-5">
+      <div class="d-inline">
+        <img style="vertical-align: middle;"
+          src="{{ theme:asset src='img/file-pdf.svg' }}"
+          alt="download job pack"
+          width="30"
+        />
+      </div>
+      <p class="d-inline m-0 p-0 pl-2 text-white" style="vertical-align: middle">Download the {{ title }} job pack</p>
+    </div>
+  </a>
+  {{ /job_pack }}
+  <div>
+    <p><strong>Closing date:</strong>{{ closing_date }}</p>
+    {{ job_description }} {{ if date_of_interviews }}
+    <p>
+      <strong>Interviews will take place on {{ date_of_interviews }}</strong>
+    </p>
+    {{ /if }}
+  </div>
+</div>
+</div>

@@ -1,0 +1,47 @@
+<nav class="navbar">
+    <div class="row" data-grid="middle between-xs">
+        <div class="grid__item col-md-4 col-xs-6">
+            <div class="navbar__left__menu menu-open">
+                <a href="http://mif.co.uk">Back to mif.co.uk</a>
+            </div>
+        </div>
+        <div class="navbar__middle grid__item col-md-4 col-xs-6">
+            <a href="{{ site_url }}">
+                <img src="{{ theme:asset src="img/logo-coral.svg" }}" alt="{{ site_name }}">
+            </a>
+        </div>
+        <div class="navbar__right grid__item col-md-4 col-xs-6">
+            {{ if logged_in }}
+                <div class="navbar__right__text">
+                    <div class="greeting">Hello</div>
+                    <div class="name">{{ user }}{{ first_name }}{{/user}}</div>
+                </div>
+                <div class="navbar__right__avatar" v-on:click='isOpen = !isOpen'>
+                    <img src="{{ user }}{{ email | gravatar:200 }}{{ /user }}"/>
+                </div>
+            {{ else }}
+                <div class="signin">
+                    <a href="{{ link to='login' }}" id="signinpop">Sign in</div>
+                </div>
+            {{ /if }}
+        </div>
+        <div class="navbar__right__menu" v-if="isOpen">
+            <ul class="navbar__right__menu__list">
+                <li class="navbar__right__menu__list__item">
+                    <a href="{{ user:logout_url }}" title="Logout">Sign Out</a>
+                </li>
+                <li class="navbar__right__menu__list__item">
+                    <a href="/forgot-password">Change password</a>
+                </li>
+                {{ user }}
+                    {{ if super == true }}
+                        <li><a href="{{ link to='cp' }}">Admin</a></li>
+                        <li><a href="cp/addons/form-saves">Create job form</a></li>
+                        <li><a href="http://mif-jobs.test/cp/collections/entries/jobs/create">Create job page</a></li>
+                        <li><a href="http://mif-jobs.test/cp/forms">View submissions</a></li>                   
+                    {{ /if }}
+                {{ /user }} 
+            </ul>
+        </div>
+    </div>
+</nav>

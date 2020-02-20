@@ -1,0 +1,10 @@
+<div class="row" v-if="showDiversity == true && step =='desc' ">
+        <button class="col-12 m-0 btn-block" @click.prevent="section('div')">Diversity <i class="text-white fas fa-arrow-right"></i></button>
+</div>
+<div class="row" v-if="showDiversity == false && step =='desc'">
+        <button class="col-12 m-0 btn-block" @click.prevent="section(1)">Begin application <i class="text-white fas fa-arrow-right"></i></button>
+</div>
+<div v-if="showDiversity != true && step !='desc'" class="row no-gutters justify-content-between mt-4">
+        <button v-bind:class="step == 1 || step == desc ? 'opacity-0' : 'btn'" class="col-12 m-0 col-md-5 btn-block btn--small" @click.prevent="prev()"><i class="text-white fas fa-arrow-left"></i> Previous</button>
+        <button  v-bind:class="step == 7 ? 'opacity-0' : 'btn'" class="col-12 col-md-5 m-0 btn btn-block btn--small" @click.prevent="next()">Next <i class="fas text-white fa-arrow-right"></i></button>
+</div>

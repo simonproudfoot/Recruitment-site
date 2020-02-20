@@ -1,0 +1,57 @@
+
+{{if now|format:dmy <= closing_date|format:dmy }}
+<article class="job-box col-xs-12 col-md-6 ">
+    <a href="{{ url }}" title="{{ title }}">
+        <div
+            class="job-box__inner job-box__inner--hover">
+            <h2 class="no-space-botto no-space-top we-text">
+                {{ title }}
+            </h2>
+            <small>
+                <p class="white-text no-space-">
+                    <p>{{ job_description | macro:summary }}</p>
+                </p>
+            </small>
+            <div class="row">
+            {{if location}}
+                <div class="col-xs">
+                    <small class="white-text">
+                        <p class="no-space-bottom white-text">
+                            <i class="icon location-white"></i>
+                            Location:
+                            <br>
+                            {{ location }}
+                        </p>
+                    </small>
+                </div>
+            {{/if}}
+            {{if contract_type}}
+                <div class="col-xs">
+                    <small class="white-text">
+                        <p class="no-space-bottom white-text">
+                            <i class="icon time-white"></i>
+                            Contract Type:
+                            <br>
+                            {{ contract_type }}
+                        </p>
+                    </small>
+                </div>
+            {{/if}}
+            {{if closing_date}}
+                <div class="col-xs">
+                    <small class="white-text">
+                        <p class="no-space-bottom white-text">
+                            <i class="icon calendar-white"></i>
+                            Closing date:
+                            <br>
+                            {{ closing_date format="l d  F Y"}}
+
+                        </p>
+                    </small>
+                </div>
+            {{/if}}
+            </div>
+        </div>
+    </a>
+</article>
+{{/if}}

@@ -1,0 +1,140 @@
+.events {
+    background-color: $dark;
+    .right-align {
+        @include mq($until: tablet) {
+            text-align: left;
+            .btn {
+                margin-top: 0.5em;
+            }
+        }
+    }
+    &__wrapper {
+        &--module {
+            // @include bigger-pad;
+            @include big-pad;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    }
+    h2 {
+        color: $white;
+    }
+    &__carouselwrapper {
+        padding-right: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+    &__direction {
+        background-color: #202020;
+        @include full-back;
+        background-size: 1.7em;
+        cursor: pointer;
+        height: 23em;
+        flex-basis: 5%;
+        max-width: 5%;
+        width: 5%;
+        @include mq($until: desktop) {
+            height: 13em;
+        }
+        &--left {
+            background-image: url("../../../img/left.svg");
+            @include mq($until: tablet) {
+                display: none;
+            }
+        }
+        &--right {
+            background-image: url("../../../img/right.svg");
+            @include mq($until: tablet) {
+                flex-basis: 10%;
+                max-width: 10%;
+                width: 10%;
+            }
+        }
+        &:hover {
+            background-color: $coral;
+        }
+    }
+    &__box {
+        padding: 0;
+        overflow: hidden;
+        height: 23em;
+        position: relative;
+        text-decoration: none;
+        color: $white;
+        margin-bottom: 1em;
+        @include mq($until: desktop) {
+            height: 13em;
+        }
+        @include mq($until: desktop) {
+            //margin-bottom: 1em;
+        }
+        &:hover {
+            color: $coral;
+            text-decoration: none;
+        }
+        &__inner {
+            margin: 0 0.5em;
+            color: $white;
+            @include full-back;
+            height: 100%;
+            overflow: hidden;
+            @include mq($until: desktop) {
+                height: 13em;
+            }
+            &--info {
+                @include big-pad;
+            }
+            &:hover {
+                h3,
+                a {
+                    color: $coral !important;
+                }
+            }
+            h3 {
+                transition-duration: 0.5s;
+                color: $white;
+            }
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+            &__content {
+                padding: 1em;
+                word-break: break-word;
+                width: 100%;
+                position: relative;
+                z-index: 5;
+                background: rgba(19, 19, 19, 0);
+                background: -moz-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(19, 19, 19, 0)), color-stop(100%, rgba(0, 0, 0, 1)));
+                background: -webkit-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                background: -o-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                background: -ms-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                background: linear-gradient(to bottom, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+              
+                &__gradient {
+                    position: absolute;
+                    width: 100%;
+                    height: 6em;
+                    bottom: 0;
+                    left: 0;
+                    background: rgba(19, 19, 19, 0);
+                    background: -moz-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(19, 19, 19, 0)), color-stop(100%, rgba(0, 0, 0, 1)));
+                    background: -webkit-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                    background: -o-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                    background: -ms-linear-gradient(top, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                    background: linear-gradient(to bottom, rgba(19, 19, 19, 0) 0%, rgba(0, 0, 0, 1) 100%);
+                 
+                }
+                @include mq($until: tablet) {
+                    //  padding: 1em em(8);
+                    font-size: em(16);
+                    h4 {
+                        font-size: em(18);
+                    }
+                }
+            }
+        }
+    }
+}

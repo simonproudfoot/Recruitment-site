@@ -1,0 +1,727 @@
+// here you can put all of your last minute or lazy hacks.
+// So that you can eliminate them all as you have time or want to
+.four-o-four__anim {
+  background-size: contain;
+  background-repeat: repeat-x;
+  height: 155px;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .four-o-four__anim {
+    height: 60px;
+  }
+}
+.four-o-four__anim--right {
+  animation: slide-right 40s linear infinite;
+}
+.four-o-four__anim--left {
+  animation: slide-left 40s linear infinite;
+}
+@keyframes slide-left {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100vw 0;
+  }
+}
+@keyframes slide-right {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100vw 0;
+  }
+}
+.opacity-0{
+  opacity: 0;
+}
+.nf-saves-item a {
+  float: none !important;
+  margin-left: 0.5em;
+}
+
+.nf-breadcrumbs,
+.nf-before-form {
+  display: none;
+}
+
+.nf-after-field {
+  width: 100%;
+}
+
+#wpmem_reg .div_text,
+#wpmem_login .div_text,
+.wpmem_msg {
+  width: 100% !important;
+}
+
+.wpmem_msg {
+  border: none !important;
+  text-align: left;
+}
+
+.cookie-warning {
+  display: block;
+  background-color: $coral;
+  color: #fff;
+  padding: 1em 0;
+  &__go-away {
+    @include full-back;
+
+    // background-image: url('../../img/close.svg');
+    width: 2em;
+    height: 2em;
+    pointer: cursor;
+    @include mq($from: tablet) {
+      //margin-left: auto;
+    }
+  }
+  p {
+    line-height: 0.4em;
+  }
+}
+
+.light-blue-back {
+  background-color: $coral;
+}
+
+.dark-blue-back {
+  background-color: $coral;
+}
+
+.faded-blue-back {
+  background-color: $faded-blue;
+}
+
+.dark-back {
+  background-color: $dark;
+  .standard-box__content {
+    background-color: #1e1e1e !important;
+    h4 {
+      color: #d2d2d2;
+    }
+  }
+}
+
+.darkback {
+  .standard-box__content {
+    background-color: #1e1e1e !important;
+    h4 {
+      color: #d2d2d2;
+    }
+  }
+}
+
+.quotepic {
+  @include full-back;
+  width: 100%;
+}
+
+.job-box {
+  margin-bottom: 1em;
+
+  &__inner {
+    padding: 1.5em;
+    background-color: #6bcdb5;
+    //background-color: #0027d8;
+    transition-duration: 0.2s;
+    p,
+    label,
+    h1,
+    h2,
+    h3,
+    small,
+    legend {
+      color: #fff;
+    }
+    #wpmem_login .button_div {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      text-align: left;
+    }
+    input {
+      width: 100%;
+    }
+    #wpmem_reg .div_text {
+      width: 100%;
+    }
+    input[type="submit"] {
+      margin-top: 2em !important;
+    }
+    .link-text {
+      display: none;
+    }
+    #wpmem_msg,
+    .wpmem_msg {
+      background-color: transparent;
+      border: none;
+    }
+    &__form {
+      display: none;
+    }
+    &--hover {
+      &:hover {
+        background-color: $black;
+      }
+    }
+  }
+  .col-xs {
+    border-left: 1px #6bcdb5 solid;
+  }
+}
+
+.saveBox {
+  position: fixed;
+  background-color: #fff;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 20;
+  width: auto;
+  padding: 0.5em;
+  margin: auto;
+  color: #6bcdb5;
+  border-top: 1px solid #dee2e6;
+
+  button {
+    padding: 0.5em;
+    background-color: transparent;
+    border: 0.071428571em solid #6bcdb5;
+    color: #6bcdb5;
+    font-size: 16px;
+    margin: 0;
+  }
+  .loadOrSave {
+    top: 0;
+    float: right;
+    right: 0;
+    padding: 0.5em;
+    background-color: #6bcdb5;
+   
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+  }
+}
+
+.socialbox {
+  margin-bottom: 1.5em;
+}
+
+.bawmrp {
+  li {
+    font-size: 14px !important;
+    line-height: 1.2em !important;
+    border: none !important;
+    text-align: left !important;
+    list-style: none !important;
+    margin-bottom: 1em !important;
+    &:before {
+      content: "" !important;
+      display: none !important;
+    }
+    img {
+      width: 100% !important;
+    }
+    a {
+      color: $dark !important;
+    }
+  }
+}
+
+.sharebutton {
+  height: 2.5em;
+  width: 2.5em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-position: center center;
+  margin-right: 1em;
+  border: 1px #ebebeb solid;
+  vertical-align: middle;
+  &:hover {
+    background-color: #ebebeb;
+  }
+  h4 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.fb-icon {
+  background-image: url(../../img/facebook-share.svg);
+}
+
+.twit-icon {
+  background-image: url(../../img/twitter-share.svg);
+}
+
+.google-icon {
+  background-image: url(../../img/google-share.svg);
+}
+
+.horizscroll {
+  flex-wrap: nowrap !important;
+  max-width: 100%;
+  overflow-x: scroll;
+  @include mq($from: tablet) {
+    overflow-x: hidden;
+  }
+}
+
+.frontpage {
+  .navbar {
+    @include mq($until: tablet) {
+      padding-bottom: 0.4em;
+      z-index: 1;
+    }
+  }
+  .module-news__article:last-of-type {
+    @include mq($from: tablet, $until: desktop) {
+      display: none;
+    }
+  }
+}
+
+.wakeletEmbed {
+  margin: 1.5em 0;
+}
+
+.white-text,
+.white-text p {
+  color: $white;
+}
+
+.darkblue-text {
+  color: $coral;
+}
+
+.lightblue-text {
+  color: $coral;
+}
+
+.fadedblue-text {
+  color: $faded-blue;
+}
+
+.red-text {
+  color: $red;
+}
+
+.black-text {
+  color: $dark;
+}
+
+.frontpage header {
+  background: rgba(0, 0, 0, 0.52);
+  @include mq($until: tablet) {
+    @include full-back;
+    background-image: url("../../img/mobile-head.gif");
+  }
+}
+
+.darkback {
+  background-color: $dark;
+  color: $white;
+  .page-content,
+  .pagecontent {
+    h1 {
+      //   word-break: break-word;
+    }
+    a strong {
+      color: $red !important;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    strong,
+    li,
+    em,
+    b {
+      color: $white;
+    }
+  }
+  .sharebutton {
+    border: none;
+  }
+}
+
+.page-template-previous-festivals-list .events__box {
+  background-color: $dark;
+  color: $white;
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  strong,
+  li,
+  em {
+    color: $white;
+  }
+}
+
+.page-template-previous-festivals-list header {
+  background-color: $dark;
+  * {
+  }
+}
+
+.videotog {
+  opacity: 0;
+  color: $white;
+  max-width: $containerMaxWidth;
+  position: absolute;
+  margin: auto;
+  height: 4em;
+  z-index: 20;
+  margin-top: 0.5em;
+  cursor: pointer;
+  small {
+    color: inherit;
+  }
+  &:hover {
+    transition: opacity 0.2s ease-in-out, color $coral ease-in-out,
+      width 0.2s ease-in-out;
+  }
+  &__hide {
+    display: inline-block;
+    &__text {
+      position: absolute;
+      left: 1px;
+      width: 10em;
+      color: $white;
+    }
+  }
+  &__selecta {
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+    color: #fff;
+    max-width: 180px;
+    line-height: 16px;
+    width: 15em;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    height: 1.6em;
+    padding: 0;
+    &:hover {
+      color: $red;
+      text-decoration: underline;
+    }
+  }
+  &__icon {
+    @include full-back;
+    width: 2em;
+    margin-right: 1em;
+    height: 2em;
+    display: inline-block;
+    vertical-align: -webkit-baseline-middle;
+    background-image: url("../../img/icons/play.svg");
+    &__text {
+      position: absolute;
+      left: -200px;
+      width: 10em;
+    }
+  }
+}
+
+.bodyfreeze {
+  overflow-y: hidden !important;
+  height: 100vh;
+}
+
+main {
+  background-color: $gray;
+}
+
+.alm-btn-wrap {
+  display: none !important;
+}
+
+section {
+  padding: em(100) 0;
+  @include mq($until: tablet) {
+    padding: em(50) 0;
+  }
+}
+
+.module {
+  @include modulepad;
+  overflow: hidden;
+}
+
+.mobile-hide {
+  @include mq($until: tablet) {
+    display: none !important;
+  }
+}
+
+.tablet-hide {
+  @include mq($from: tablet, $until: desktop) {
+    display: none !important;
+  }
+}
+
+.fullheight {
+  height: 100%;
+}
+
+.vert-middle {
+  @include mq($from: tablet) {
+    height: em(534);
+  }
+}
+
+.row {
+  &:before {
+    content: none;
+  }
+  &:after {
+    content: "";
+  }
+}
+
+.nopad {
+  @include mq($until: tablet) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+.events-section {
+  padding: $sectionpad;
+}
+
+.blue-text {
+  color: $coral;
+}
+
+::selection {
+  background-color: $coral;
+  color: #fff;
+}
+
+.featured-image {
+  @include full-back;
+  height: em(400);
+  @include mq($until: tablet) {
+    height: 13em;
+  }
+}
+
+.sponsors {
+  padding: 2em 0;
+  background-color: $white;
+  border-bottom: 1px solid $gray2;
+  img {
+    width: 100%;
+  }
+}
+
+.standard-box {
+  margin-bottom: 1em;
+  &:hover &__thumbnail__inner {
+    transform: scale(1.1);
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  &__thumbnail {
+    overflow: hidden;
+    &__inner {
+      @include full-back;
+      transition-duration: 0.5s;
+      &--empty {
+        background-color: $gray2;
+        background-size: 15em;
+        &:hover {
+          background-color: $faded-blue;
+        }
+      }
+    }
+  }
+  &__content {
+    background-color: $white;
+    padding-top: 0;
+    padding-bottom: 0;
+    &__inner {
+      padding: 0.5em;
+    }
+  }
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  height: 0;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+ * Featherlight – ultra slim jQuery lightbox
+ * Version 1.7.9 - http://noelboss.github.io/featherlight/
+ *
+ * Copyright 2017, Noël Raoul Bossart (http://www.noelboss.com)
+ * MIT Licensed.
+**/
+
+@media all {
+  html.with-featherlight {
+    /* disable global scrolling when featherlights are visible */
+    overflow: hidden;
+  }
+  .featherlight {
+    display: none;
+    /* dimensions: spanning the background from edge to edge */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    /* z-index needs to be >= elements on the site. */
+    /* position: centering content */
+    text-align: center;
+    /* insures that the ::before pseudo element doesn't force wrap with fixed width content; */
+    white-space: nowrap;
+    /* styling */
+    cursor: pointer;
+    background: #333;
+    /* IE8 "hack" for nested featherlights */
+    background: rgba(0, 0, 0, 0);
+  }
+  /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
+  .featherlight:last-of-type {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .featherlight:before {
+    /* position: trick to center content vertically */
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  .featherlight .featherlight-content {
+    /* make content container for positioned elements (close button) */
+    position: relative;
+    /* position: centering vertical and horizontal */
+    text-align: left;
+    vertical-align: middle;
+    display: inline-block;
+    /* dimensions: cut off images */
+    overflow: auto;
+    padding: 25px 25px 0;
+    border-bottom: 25px solid transparent;
+    /* dimensions: handling large content */
+    margin-left: 5%;
+    margin-right: 5%;
+    max-height: 95%;
+    /* styling */
+    background: #fff;
+    cursor: auto;
+    /* reset white-space wrapping */
+    white-space: normal;
+  }
+  /* contains the content */
+  .featherlight .featherlight-inner {
+    /* make sure its visible */
+    display: block;
+  }
+  /* don't show these though */
+  .featherlight script.featherlight-inner,
+  .featherlight link.featherlight-inner,
+  .featherlight style.featherlight-inner {
+    display: none;
+  }
+  .featherlight .featherlight-close-icon {
+    /* position: centering vertical and horizontal */
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    /* dimensions: 25px x 25px */
+    line-height: 25px;
+    width: 25px;
+    /* styling */
+    cursor: pointer;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    /* Set the background in case it overlaps the content */
+    background: rgba(255, 255, 255, 0.3);
+    color: #000;
+    border: none;
+    padding: 0;
+  }
+  /* See http://stackoverflow.com/questions/16077341/how-to-reset-all-default-styles-of-the-html5-button-element */
+  .featherlight .featherlight-close-icon::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  .featherlight .featherlight-image {
+    /* styling */
+    width: 100%;
+  }
+  .featherlight-iframe .featherlight-content {
+    /* removed the border for image croping since iframe is edge to edge */
+    border-bottom: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+  .featherlight iframe {
+    /* styling */
+    border: none;
+  }
+  .featherlight * {
+    /* See https://github.com/noelboss/featherlight/issues/42 */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+/* handling phones and small screens */
+
+@media only screen and (max-width: 1024px) {
+  .featherlight .featherlight-content {
+    /* dimensions: maximize lightbox with for small screens */
+    margin-left: 0;
+    margin-right: 0;
+    max-height: 98%;
+    padding: 10px 10px 0;
+    border-bottom: 10px solid transparent;
+  }
+}
+
+/* hide non featherlight items when printing */
+
+@media print {
+  @page {
+    size: landscape;
+  }
+  html.with-featherlight > * > :not(.featherlight) {
+    display: none;
+  }
+}
+.btn--inactive{
+  opacity: 0.4;
+pointer-events: none;
+}

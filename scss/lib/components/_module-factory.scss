@@ -1,0 +1,19 @@
+.module-factory {
+    min-height: em(300);
+    @include grey-border-bottom;
+    &__content {
+        @include big-pad;
+        background-color: $white;
+
+        &__inner {
+            //padding: 1em;
+        }
+    }
+
+    &__image {
+        @include full-back;
+        @include mq($until: tablet){
+        	height: 15em;
+        }
+    }
+}

@@ -1,0 +1,443 @@
+/*  FORMS */
+
+
+/*  Styling for form elements */
+
+section * {
+    // font-size: 20px !important;
+}
+
+.nf-mp-body {
+    min-height: 42em;
+}
+
+form,
+fieldset {
+    margin-bottom: 1.529411765em;
+}
+
+legend,
+label {
+    display: block;
+    font-weight: normal;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.nf-field-label {
+    margin-bottom: em(5) !important;
+    label {
+        font-size: em(16);
+    }
+}
+select {
+    background-color: $coral;
+}
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    line-height: 1.470588235;
+    color: #555555;
+    vertical-align: middle;
+    margin-bottom: 1.176470588em;
+    padding: $input-padding;
+    border: .071428571em solid #6bcdb5;
+    border-radius: none;
+    transition-duration: 0.1s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.nf-field-container:not(.textbox-container) {
+    margin-bottom: 2em !important;
+}
+
+textarea {
+    font-size: em(20);
+}
+
+select {
+    color: #fff;
+    border: none;
+    line-height: 1em;
+    font-weight: bold;
+    border-radius: 0;
+    -webkit-appearance: none;
+    position: relative;
+    cursor: pointer;
+ 
+    background-size: 1em;
+    background-position: 95% 50%;
+    -moz-appearance: none;
+    &:hover {
+        background-color: $dark;
+    }
+}
+
+.form-halfwidth {
+    width: 45% !important;
+    margin-right: 4%;
+    &--inline {
+        display: inline-block;
+    }
+    @include mq($until: tablet) {
+        width: 100% !important;
+    }
+}
+
+//.nf-form-fields-required { display: none;}
+.hide {
+    //display: none;
+}
+
+.nf-field-element ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-right: -.5rem;
+    margin-left: -.5rem;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    li {
+        list-style: none;
+        flex-basis: 50%;
+        max-width: 50%;
+        font-size: em(16);
+        @include mq($until: tablet) {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        &:before {
+            content: "";
+            margin: 0;
+        }
+    }
+}
+
+
+/* Base for label styling */
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+
+[type="checkbox"]:not(:checked)+label,
+[type="checkbox"]:checked+label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+}
+
+
+/* checkbox aspect */
+
+[type="checkbox"]:not(:checked)+label:before,
+[type="checkbox"]:checked+label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.25em;
+    height: 1.25em;
+    background: #fff;
+    border: 1px $gray2 solid;
+}
+
+
+/* checked mark aspect */
+
+[type="checkbox"]:not(:checked)+label:after,
+[type="checkbox"]:checked+label:after {
+    content: '✔';
+    position: absolute;
+    top: .1em;
+    left: .3em;
+    font-size: 1.3em;
+    line-height: 0.8;
+    color: $green;
+    transition: all .2s;
+}
+
+
+/* checked mark aspect changes */
+
+[type="checkbox"]:not(:checked)+label:after {
+    opacity: 0;
+    transform: scale(0);
+}
+
+[type="checkbox"]:checked+label:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* disabled checkbox */
+
+[type="checkbox"]:disabled:not(:checked)+label:before,
+[type="checkbox"]:disabled:checked+label:before {
+    box-shadow: none;
+    border-color: #bbb;
+    background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked+label:after {
+    color: #999;
+}
+
+[type="checkbox"]:disabled+label {
+    color: #aaa;
+}
+
+
+/* accessibility */
+
+[type="checkbox"]:checked:focus+label:before,
+[type="checkbox"]:not(:checked):focus+label:before {
+    // border: 2px dotted $coral;
+}
+
+
+/* hover style just for information */
+
+label:hover:before {
+    border: 2px solid #4778d9 !important;
+}
+
+#mc_embed_signup input[type="email"],
+.footer #mc-embedded-subscribe {
+    padding: 0.8em 1.4em 0.7em 1.4em;
+}
+
+.wpcf7 input[type="submit"] {
+    width: inherit;
+}
+
+form button,
+form .btn {
+    margin-bottom: 1.176470588em;
+    border: none !important;
+}
+
+textarea {
+    height: 12em;
+}
+
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-bottom: .294117647em;
+    cursor: pointer;
+}
+
+input:focus,
+textarea:focus {
+    border-color: $input-focus-border;
+    -webkit-box-shadow: inset 0 0.07143em 0.07143em rgba(0, 0, 0, 0.075), 0 0 0.47059em $input-focus-shadow;
+    box-shadow: inset 0 0.07143em 0.07143em rgba(0, 0, 0, 0.075), 0 0 0.47059em $input-focus-shadow;
+    outline: 0;
+    outline: thin dotted \9;
+}
+
+input[type="file"]:focus,
+input[type="checkbox"]:focus,
+select:focus {
+    outline: thin dotted;
+    outline: .294117647em auto -webkit-focus-ring-color;
+    outline-offset: -.117647059em;
+}
+
+
+/*  Inline Inputs */
+
+.input-inline {
+    display: inline;
+    width: auto;
+}
+
+
+/*  Condensed Inputs */
+
+.input-condensed {
+    line-height: 1;
+    padding: .117647059em;
+}
+
+@media (min-width: 40em) {
+    input,
+    textarea,
+    select {
+        line-height: 1.588235294;
+    }
+}
+
+.nf-saves-cont {
+    border: none;
+}
+
+.nf-before-form {
+    border: 1px #d4d4d4 solid;
+    padding: 1em;
+    margin-bottom: 1em;
+    legend {
+        font-weight: 900;
+    }
+}
+
+// Ninja form styles
+.application-form section {
+    margin-top: 3em;
+}
+
+.nf-mp-header {
+    margin-bottom: 2em;
+}
+
+.nf-after-field {
+    position: absolute !important;
+}
+
+.nf-progress {
+    height: 7px !important;
+    background-color: $coral !important;
+}
+
+.nf-progress-container {
+    margin-top: 20px !important;
+    width: 100%;
+    border: none !important;
+    background-color: #1d1d1d;
+}
+
+.inactive-form {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.nf-form-fields-required {
+    display: none;
+}
+
+option {
+    background-color: #000;
+    color: #fff;
+    font-family: $base-font !important;
+    
+}
+
+.block{
+    margin-bottom: 1.5em;
+}
+
+.switch-field {
+	display: flex;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	//color: rgba(0, 0, 0, 0.6);
+
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	//margin-right: -1px;
+	border: 1px solid $coral;
+	//transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: $coral;
+	box-shadow: none;
+}
+
+
+.pageActive{
+    background-color: $coral !important;
+    color: $white;
+    border: $coral;
+    border-right: none;
+    
+}
+
+.jobpack{
+    background-color: $coral;
+    transition-duration: 0.5s;
+    &:hover{
+        background-color: #000;
+        h3{
+            color: $coral;
+        }
+    }
+}
+
+
+.choosePage{
+    cursor: pointer;
+    background-color: $white;
+    padding: 1em 0;
+    line-height: 1px;
+    border: 1px solid #dee2e6;
+    border-right: 0;
+    &:hover{
+        background-color: $coral;
+        color: $white;
+    }
+}
+
+
+
+    progress{
+        transition-duration: 0.5s; 
+    }
+
+    progress::-moz-progress-bar { background: $coral; transition-duration: 0.5s; }
+
+    
+    progress::-webkit-progress-value { background: $coral; transition-duration: 0.5s;}
+    
+    
+    progress { color: $coral; transition-duration: 0.5s;}
+  
+
+.progressbar{
+    position: absolute;
+    top:48px;
+    left:0;
+    right: 0;
+    right: 0;
+    width: 100%;
+}

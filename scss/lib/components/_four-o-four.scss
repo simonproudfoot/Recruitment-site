@@ -1,0 +1,31 @@
+.four-o-four {
+    @include full-back;
+
+    height: 80vh;
+    //background-image: url("../../img/photos/wiwrtw.jpg");
+
+    &__content {
+        h1 {
+            font-size: em(100);
+            color: #fff;
+            animation: textglitch 3s infinite;
+
+            @include mq($from: tablet) {
+                font-size: em(285);
+            }
+        }
+
+        h2 {
+            color: $white;
+            animation: textglitch 3.2s infinite;
+        }
+
+        p {
+            color: $white;
+
+            a {
+                font-weight: bolder;
+            }
+        }
+    }
+}

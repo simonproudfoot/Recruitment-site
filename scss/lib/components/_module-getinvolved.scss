@@ -1,0 +1,24 @@
+.module-getinvolved {
+    min-height: em(300);
+    @include grey-border-bottom;
+    &__content {
+        @include big-pad;
+        background-color: $coral;
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            color: #fff;
+        }
+        &__inner {
+            // padding: 1em;
+        }
+    }
+    &__image {
+        @include full-back;
+        @include mq($until: tablet) {
+            height: 15em;
+        }
+    }
+}
