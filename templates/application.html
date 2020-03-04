@@ -1,31 +1,31 @@
     {{ if logged_in }}
     <div style="max-width: 100%" >
-        <div class="row justify-content-center no-gutters" >   
-            <div class="choosePage col-xs  text-center" v-bind:class="{ 'pageActive' : step == 'desc' || step == ''}" v-on:click="section('desc')">
+        <div class="row justify-content-center no-gutters" > 
+            <div class="choosePage col-4 col-sm  text-center" v-bind:class="{ 'pageActive' : step == 1 || step == ''}" v-on:click="section(1)">
                 <small>Job<br>description</small>
             </div>
-            <div v-if="showDiversity == true" v-bind:class="{ 'pageActive' : step == 'div'}" class="choosePage col-xs text-center"  v-on:click="section('div')">
+            <div v-bind:class="{ 'pageActive' : step == 2}" class="choosePage col-4 col-sm text-center"  v-on:click="section(2)">
                 <small>Diversity</small>
             </div>
-            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 1}, {'btn--inactive' : showDiversity}]"  v-on:click="section(1)">
+            <div class="choosePage col-4 col-sm text-center" v-bind:class="[{ 'pageActive' : step === 3}, {'btn--inactive' : showDiversity}]"  v-on:click="section(3)">
                 <small>Contact<br/>details</small>
             </div>
-            <div class="choosePage col-xs  text-center" v-bind:class="[{ 'pageActive' : step === 2}, {'btn--inactive' : showDiversity}]" v-on:click="section(2)">
+            <div class="choosePage col-4 col-sm  text-center" v-bind:class="[{ 'pageActive' : step === 4}, {'btn--inactive' : showDiversity}]" v-on:click="section(4)">
                 <small>Employment<br/>history</small>
             </div>
-            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 3}, {'btn--inactive' : showDiversity}]" v-on:click="section(3)">
+            <div class="choosePage col-4 col-sm text-center" v-bind:class="[{ 'pageActive' : step === 5}, {'btn--inactive' : showDiversity}]" v-on:click="section(5)">
                 <small>Experience</small>
             </div>
-            <div class="choosePage col-xs  text-center" v-bind:class="[{ 'pageActive' : step === 4}, {'btn--inactive' : showDiversity}]" v-on:click="section(4)">
+            <div class="choosePage col-4 col-sm  text-center" v-bind:class="[{ 'pageActive' : step === 6}, {'btn--inactive' : showDiversity}]" v-on:click="section(6)">
                 <small>Supporting<br/>information</small>
             </div>
-            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 5}, {'btn--inactive' : showDiversity}]" v-on:click="section(5)">
+            <div class="choosePage col-4 col-sm text-center" v-bind:class="[{ 'pageActive' : step === 7}, {'btn--inactive' : showDiversity}]" v-on:click="section(7)">
                 <small>References</small>
             </div>
-            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 6}, {'btn--inactive' : showDiversity}]" v-on:click="section(6)">
+            <div class="choosePage col-4 col-sm text-center" v-bind:class="[{ 'pageActive' : step === 8}, {'btn--inactive' : showDiversity}]" v-on:click="section(8)">
                 <small>Eligibility</small>
             </div>
-            <div class="choosePage col-xs text-center" v-bind:class="[{ 'pageActive' : step === 7}, {'btn--inactive' : showDiversity}]" v-on:click="section(7)">
+            <div class="choosePage col-4 col-sm text-center" v-bind:class="[{ 'pageActive' : step === 9}, {'btn--inactive' : showDiversity}]" v-on:click="section(9)">
                 <small>Submit</small>
             </div>
         </div>
@@ -38,17 +38,17 @@
     </div>
     {{ /if }}
     <section class="regular">
-    @{{step}}
         <div class="container">
             <div class="row">
                 {{ if logged_in }}
                     {{ partial:job-forms }}
                 {{ else }}
-                <div class="col-xs-12 col-md-8">
+                <div class="col-4 col-sm-12 col-md-8">
                     {{ partial:desc }}
                 </div>
-                <div class="col-xs-12 col-md-3 offset-md-1">
+                <div class="col-4 col-sm-12 col-md-3 offset-lg-1">
                     {{ partial:user-login-small }}
+                    <a href="/forgot-password">Forgot password?</a>
                 </div>
                 {{ /if }}          
             </div>       

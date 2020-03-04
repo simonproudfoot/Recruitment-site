@@ -112,11 +112,10 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   data: {
     dob: '',
     loading: false,
-    step: 'desc',
+    step: 1,
     desc: '',
     isOpen: false,
     userFormsClean: [],
-    diversityDone: '',
     userForms: [],
     got: [],
     formValue: [],
@@ -125,7 +124,6 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     userName: window.userName,
     userEmail: window.email,
     errors: '',
-    showDiversity: true,
     showMain: false,
     showSaved: false,
     submitted: false,
@@ -146,42 +144,20 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     section: function section(Number) {
       this.step = Number;
     },
-    checkDiversity: function checkDiversity() {
-      var _this = this;
-
-      this.loading = true;
-      axios__WEBPACK_IMPORTED_MODULE_1___default()({
-        method: 'get',
-        url: '/!/FormSaves/CheckDiversity/' + this.userEmail,
-        dataType: "json"
-      }).then(function (response) {
-        if (response.data == 1) {
-          _this.showMain = true;
-          _this.showDiversity = false;
-          _this.loading = false;
-        } else {
-          _this.showMain = false;
-          _this.loading = false;
-          _this.showDiversity = true;
-        }
-      })["catch"](function (errors) {
-        _this.error = errors;
-      });
-    },
     saved: function saved() {
-      var _this2 = this;
+      var _this = this;
 
       this.showSaved = true;
       setTimeout(function () {
-        _this2.showSaved = false;
+        _this.showSaved = false;
       }, 1000);
     },
     loaded: function loaded() {
-      var _this3 = this;
+      var _this2 = this;
 
       this.loading = true;
       setTimeout(function () {
-        _this3.loading = false;
+        _this2.loading = false;
       }, 1000);
     },
     randomGreeting: function randomGreeting() {
@@ -194,26 +170,6 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     formSubmitted: function formSubmitted() {
       this.submitted = true;
       this.showMain = false;
-    },
-    saveDiversity: function saveDiversity() {
-      var _this4 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default()({
-        method: 'post',
-        url: '/!/FormSaves/diversity/' + this.userEmail,
-        dataType: "json"
-      }).then(function (response) {
-        _this4.showDiversity = false;
-
-        _this4.saved();
-
-        console.log('saved');
-      })["catch"](function (errors) {
-        console.log(errors);
-      });
-    },
-    hideMainForm: function hideMainForm() {
-      this.diversityDone = false;
     },
     unHideMainForm: function unHideMainForm() {
       this.showMain = true;
@@ -228,7 +184,7 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
       return indexed_array;
     },
     saveForm: function saveForm(e) {
-      var _this5 = this;
+      var _this3 = this;
 
       e.preventDefault();
       var form = $("#mainform");
@@ -258,32 +214,32 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
         data: this.userForms,
         dataType: "json"
       }).then(function (response) {
-        _this5.saved();
+        _this3.saved();
       })["catch"](function (errors) {
         alert('There was an error saving this form. Please check your connection and try again');
       });
     },
     loadForms: function loadForms() {
-      var _this6 = this;
+      var _this4 = this;
 
       this.loading = true;
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/!/FormSaves/Forms/" + this.userName).then(function (response) {
-        _this6.userForms = response.data;
+        _this4.userForms = response.data;
         var a = JSON.parse(JSON.stringify(response.data.find(function (form) {
-          return form.form === _this6.formTitle;
+          return form.form === _this4.formTitle;
         })));
         var result = a['saved'][0];
-        _this6.receivedSaved = result;
-        _this6.loading = false;
+        _this4.receivedSaved = result;
+        _this4.loading = false;
 
         if (result) {
-          _this6.hasSaved = true;
-          _this6.formValue = a['saved'][0];
+          _this4.hasSaved = true;
+          _this4.formValue = a['saved'][0];
         } else {
-          _this6.hasSaved = false;
+          _this4.hasSaved = false;
         }
       }, function (error) {
-        _this6.loading = false;
+        _this4.loading = false;
       });
     },
     getForm: function getForm() {
@@ -391,13 +347,12 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     }
   },
   created: function created() {
-    var _this7 = this;
+    var _this5 = this;
 
     window.onbeforeunload = function (s) {
-      return _this7.showSave ? "" : null;
+      return _this5.showSave ? "" : null;
     };
 
-    this.checkDiversity();
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers.common = {
       'X-Requested-With': 'XMLHttpRequest',
       'X-CSRF-TOKEN': window.csrf_token
@@ -405,20 +360,20 @@ var vm = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     this.loading = true;
     axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/!/FormSaves/Forms/" + this.userName).then(function (response) {
       if (response.data) {
-        _this7.loading = false;
-        _this7.userForms = response.data;
+        _this5.loading = false;
+        _this5.userForms = response.data;
         var a = JSON.parse(JSON.stringify(response.data.find(function (form) {
-          return form.form === _this7.formTitle;
+          return form.form === _this5.formTitle;
         })));
-        _this7.hasSaved = true;
-        _this7.formValue = a['saved'][0];
+        _this5.hasSaved = true;
+        _this5.formValue = a['saved'][0];
       } else {
-        _this7.hasSaved = false;
-        _this7.loading = false;
+        _this5.hasSaved = false;
+        _this5.loading = false;
       }
     }, function (error) {
-      _this7.loading = false;
-      _this7.error = error;
+      _this5.loading = false;
+      _this5.error = error;
     });
   }
 });

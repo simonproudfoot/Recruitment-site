@@ -8,11 +8,10 @@ const vm = new Vue({
 	data: {
 		dob: '',
 		loading: false,
-		step: 'desc',
+		step: 1,
 		desc: '',
 		isOpen: false,
 		userFormsClean: [],
-		diversityDone: '',
 		userForms: [],
 		got: [],
 		formValue: [],
@@ -21,7 +20,6 @@ const vm = new Vue({
 		userName: window.userName,
 		userEmail: window.email,
 		errors: '',
-		showDiversity: true,
 		showMain: false,
 		showSaved: false,
 		submitted: false,
@@ -50,26 +48,6 @@ const vm = new Vue({
 		section: function (Number) {
 			this.step = Number
 		},
-		checkDiversity: function () {
-			this.loading = true
-			axios({
-				method: 'get',
-				url: '/!/FormSaves/CheckDiversity/' + this.userEmail,
-				dataType: "json",
-			}).then(response => {
-				if (response.data == 1) {
-					this.showMain = true;
-					this.showDiversity = false;
-					this.loading = false;
-				} else {
-					this.showMain = false;
-					this.loading = false;
-					this.showDiversity = true;
-				}
-			}).catch(errors => {
-				this.error = errors
-			})
-		},
 		saved: function () {
 			this.showSaved = true
 			setTimeout(() => {
@@ -92,22 +70,7 @@ const vm = new Vue({
 			this.submitted = true
 			this.showMain = false
 		},
-		saveDiversity: function () {
-			axios({
-				method: 'post',
-				url: '/!/FormSaves/diversity/' + this.userEmail,
-				dataType: "json",
-			}).then(response => {
-				this.showDiversity = false;
-				this.saved();
-				console.log('saved');
-			}).catch(errors => {
-				console.log(errors);
-			})
-		},
-		hideMainForm: function () {
-			this.diversityDone = false;
-		},
+
 		unHideMainForm: function () {
 			this.showMain = true;
 			document.getElementById("dob").value = this.dob
@@ -258,7 +221,6 @@ const vm = new Vue({
 	},
 	created: function () {
 		window.onbeforeunload = s => this.showSave ? "" : null;
-		this.checkDiversity();
 		axios.defaults.headers.common = {
 			'X-Requested-With': 'XMLHttpRequest',
 			'X-CSRF-TOKEN': window.csrf_token

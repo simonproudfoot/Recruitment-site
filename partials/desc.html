@@ -18,8 +18,9 @@
   </a>
   {{ /job_pack }}
   <div>
-    <p><strong>Closing date:</strong>{{ closing_date }}</p>
-    {{ job_description }} {{ if date_of_interviews }}
+    <p><strong>Closing date: </strong>{{ closing_date format="l d  F Y"}}</p>
+    {{ job_description }} 
+    {{ if date_of_interviews }}
     <p>
       <strong>Interviews will take place on {{ date_of_interviews }}</strong>
     </p>

@@ -1,25 +1,107 @@
 
-<h2 class="m-0 pt-0 m pb-3">Equal opportunities and diversity</h2>
-<p class="mb-0">At Manchester International Festival we are committed to building opportunity for all into everything we do and to reflect the rich diversity in our city and the world at large</p>
-  <p>Gathering the information on this form is therefore vital to measuring our success in this area - and is also a requirement of our funders. We would therefore appreciate you taking the time to complete this section of the form before proceeding to your application</p>
-  <p>Please note - the information entered on this page will NOT be used to assess your application and is for anonymous statistical monitoring purposes only</p>
-{{ form:create in="diversity" attr="id:diversity" }} 
-  {{if errors}}
-  @{{ showDiversity = false}} 
-  <div class="alert alert-danger">
-		<h3>Unable to submit this application</h3>
-		<p>Please fix the following errors and try again</p>
-    <ul class="p-2">
-    {{ errors }}
-      <li>{{ value }}</li>
-    {{ /errors }}
-    </ul>
-	</div>
-  {{ /if }}
-  {{ if success }} 
-    @{{ saveDiversity() }} 
-  {{ /if }}
-  {{ partial:general-form-layout }}
-{{ /form:create }}
-
-
+<div class="row">
+    <h2 class="m-0 pt-0 m pb-3">Equal opportunities and diversity</h2>
+    <p class="mb-0">At Manchester International Festival we are committed to building opportunity for all into everything we do and to reflect the rich diversity in our city and the world at large</p>
+    <p>Gathering the information on this form is therefore vital to measuring our success in this area - and is also a requirement of our funders. We would therefore appreciate you taking the time to complete this section of the form before proceeding to your application</p>
+    <p>Please note - the information entered on this page will NOT be used to assess your application and is for anonymous statistical monitoring purposes only</p>
+    <div class="row">
+        <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <label>Postcode *</label>
+            <input type="text" name="postcode" value="" class="form-control">
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <label>Date of birth</label>
+            <input type="date" name="dob" class="form-control">
+        </div>
+        <div class="block col-xs-12 col-sm-12">
+            <label>Gender</label>
+            <div class="c-inputs-stacked">
+                <div class="switch-field">
+                    <input type="radio" id="Gendermale" name="gender" value="male">
+                    <label for="Gendermale">male</label>
+                    <input type="radio" id="Genderfemale" name="gender" value="female">
+                    <label for="Genderfemale">female</label>
+                    <input type="radio" id="Gendernon-binary" name="gender" value="non-binary">
+                    <label for="Gendernon-binary">non-binary</label>
+                    <input type="radio" id="Genderprefer not to say" name="gender" value="prefer not to say">
+                    <label for="Genderprefer not to say">prefer not to say</label>
+                </div>
+            </div>
+        </div>
+        <div class="block col-xs-12 col-sm-12">
+            <label>Is your gender identity the same one you were assigned at birth</label>
+            <div class="c-inputs-stacked">
+                <div class="switch-field">
+                    <input type="radio" id="Is your gender identity the same one you were assigned at birthyes" name="is_your_gender_the_same_you_were_assigned_at_birth" value="yes">
+                    <label for="Is your gender identity the same one you were assigned at birthyes">yes</label>
+                    <input type="radio" id="Is your gender identity the same one you were assigned at birthno" name="is_your_gender_the_same_you_were_assigned_at_birth" value="no">
+                    <label for="Is your gender identity the same one you were assigned at birthno">no</label>
+                    <input type="radio" id="Is your gender identity the same one you were assigned at birthprefer not to say" name="is_your_gender_the_same_you_were_assigned_at_birth" value="prefer not to say">
+                    <label for="Is your gender identity the same one you were assigned at birthprefer not to say">prefer not to say</label>
+                </div>
+            </div>
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label>If you would prefer to self-define your gender please enter details here</label>
+            <textarea name="would_prefer_to_self-define_gender" class="form-control"></textarea>
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <label>Sexual Orientation</label>
+            <select name="sexual_orientation" class="l">
+                <option>Please select</option>
+                <option value="bisexual">bisexual</option>
+                <option value="gay man">gay man</option>
+                <option value="gay woman">gay woman</option>
+                <option value="hetrosexual">hetrosexual</option>
+            </select>
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <label>If you would prefer to self-define your sexuality please enter details here</label>
+            <textarea name="would_prefer_to_self-define_sexuality" class="form-control"></textarea>
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <label>Disability - Please state which of the following you consider applies to you</label>
+            <select name="disability" class="l">
+                <option>Please select</option>
+                <option value="Don’t identify as disabled">Don’t identify as disabled</option>
+                <option value="Visual impairment">Visual impairment</option>
+                <option value="Hard of hearing /deafened">Hard of hearing /deafened</option>
+                <option value="Deaf">Deaf</option>
+                <option value="Physical or mobility impairment">Physical or mobility impairment</option>
+                <option value="Cognitive or learning disabilities">Cognitive or learning disabilities</option>
+                <option value="Experience of a mental health condition">Experience of a mental health condition</option>
+                <option value="Restricted growth">Restricted growth</option>
+                <option value="Living with HIV">Living with HIV</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select>
+        </div>
+        <div class="block col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <label>Which do you consider your ethnicity to be?</label>
+            <select name="ethnicity" class="l">
+                <option>Please select</option>
+                <option value="White British">White British</option>
+                <option value="White Irish">White Irish</option>
+                <option value="Any other white background">Any other white background</option>
+                <option value="Mixed British – White and Black Caribbean">Mixed British – White and Black Caribbean</option>
+                <option value="Mixed British– White and Black African">Mixed British– White and Black African</option>
+                <option value="Mixed British– White and Asian">Mixed British– White and Asian</option>
+                <option value="Mixed British– Any other mixed background">Mixed British– Any other mixed background</option>
+                <option value="Asian/Asian British – Indian">Asian/Asian British – Indian</option>
+                <option value="Asian/Asian British – Pakistani">Asian/Asian British – Pakistani</option>
+                <option value="Asian/Asian British – Bangladeshi">Asian/Asian British – Bangladeshi</option>
+                <option value="Asian/Asian British – Chinese">Asian/Asian British – Chinese</option>
+                <option value="Asian/Asian British – Any other Asian background">Asian/Asian British – Any other Asian background</option>
+                <option value="Black/Black British – African">Black/Black British – African</option>
+                <option value="Black/Black British – Caribbean">Black/Black British – Caribbean</option>
+                <option value="Black/Black British – Any other Black background">Black/Black British – Any other Black background</option>
+                <option value="Other – Arab">Other – Arab</option>
+                <option value="Other – Any other ethnic group">Other – Any other ethnic group</option>
+                <option value="Other – prefer not to say">Other – prefer not to say</option>
+                <option value="Other – not known">Other – not known</option>
+            </select>
+        </div>
+    </div>
+</div>
+                 
+                  
+                
